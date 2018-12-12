@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="JukeBox.Mobile.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <vm:ViewModelLocator xmlns:vm="clr-namespace:JukeBox.Mobile.ViewModels" x:Key="Locator" />
+
+            <Color x:Key="AppColor">#FF0000</Color>
+            <Color x:Key="TextColor">White</Color>
+            <Color x:Key="BackgroundColor">#B60A0A</Color>
+
+            <OnPlatform x:Key="FiraFont" x:TypeArguments="x:String">
+                <On Platform="Android" Value="FiraSans-Regular.ttf#Fira Sans" />
+                <On Platform="iOS" Value="FiraSans-Regular" />
+            </OnPlatform>
+
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarBackgroundColor" Value="{DynamicResource AppColor}" />
+                <Setter Property="BarTextColor" Value="{DynamicResource TextColor}" />
+            </Style>
+
+            <Style TargetType="Button">
+                <Setter Property="BackgroundColor" Value="{DynamicResource BackgroundColor}" />
+                <Setter Property="TextColor" Value="{DynamicResource TextColor}" />
+                <Setter Property="FontFamily" Value="{DynamicResource FontAwesome}" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="FontSize" Value="22" />
+            </Style>
+
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<common:ContentPageBase
+    x:Class="JukeBox.Mobile.Views.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:common="clr-namespace:JukeBox.Mobile.Common"
+    Title="JukeBox!"
+    BindingContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}">
+
+    <StackLayout>
+        <ListView
+            BackgroundColor="Transparent"
+            CachingStrategy="RecycleElement"
+            HasUnevenRows="false"
+            HorizontalOptions="CenterAndExpand"
+            ItemsSource="{Binding MediaFiles}"
+            SelectedItem="{Binding SelectedMediaFile, Mode=TwoWay}"
+            VerticalOptions="CenterAndExpand">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Label
+                            Margin="15,0,15,0"
+                            HorizontalOptions="StartAndExpand"
+                            Text="{Binding FileName}"
+                            FontAttributes="Bold"
+                            VerticalOptions="CenterAndExpand" />
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout
+            Margin="15"
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal">
+            <Button Command="{Binding PlayCommand}" Text="&#xf04b;" />
+            <Button Command="{Binding PauseCommand}" Text="&#xf04c;" />
+            <Button Command="{Binding StopCommand}" Text="&#xf04d;" />
+        </StackLayout>
+    </StackLayout>
+
+</common:ContentPageBase>
